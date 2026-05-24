@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- THE STEALTH CLOAK: Blocks all search engines from finding this page -->
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    
+    <title>SYS.OPT.DIR-00X</title>
+    
+    <style>
+        :root {
+            --neon-green: #4ade80;
+            --neon-glow: rgba(74, 222, 128, 0.4);
+            --bg-dark: #050806;
+            --card-bg: rgba(5, 8, 6, 0.75);
+            --text-main: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Aligns content toward the bottom void */
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- DESKTOP FIX: Blurred glowing background for wide screens --- */
+        .bg-blur {
+            position: fixed;
+            top: -5%; left: -5%; width: 110%; height: 110%;
+            background-image: url('photo_2026-05-24_15-01-30.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(30px);
+            opacity: 0.35;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* --- DESKTOP FIX: Centered portrait image --- */
+        .bg-main {
+            position: fixed;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 550px; /* Constrains the image so it doesn't zoom out of control */
+            height: 100%;
+            background-image: url('photo_2026-05-24_15-01-30.jpg');
+            background-size: cover;
+            background-position: center top;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Cinematic Void Gradient Overlay */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.95) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 20px 60px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            color: var(--text-main);
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 0 0 8px 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .header p {
+            color: var(--neon-green);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Link Buttons */
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 18px 22px;
+            margin-bottom: 16px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 16px;
+            color: var(--neon-green);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(10, 20, 15, 0.85);
+            border-color: var(--neon-green);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px var(--neon-glow);
+            color: #fff;
+        }
+
+        .link-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Icon Styling inside buttons */
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 8px;
+            color: var(--neon-green);
+        }
+
+        .link-btn:hover .btn-icon {
+            background: var(--neon-green);
+            color: var(--bg-dark);
+        }
+
+        .arrow-icon {
+            opacity: 0.5;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .link-btn:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- MOBILE OPTIMIZATIONS --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px 40px 15px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .link-btn {
+                padding: 14px 18px; /* Slightly smaller buttons on mobile */
+                font-size: 13px;
+                border-radius: 14px;
+                margin-bottom: 12px;
+            }
+            .btn-icon {
+                width: 28px;
+                height: 28px;
+                border-radius: 6px;
+            }
+            .btn-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Image Layers -->
+    <div class="bg-blur"></div>
+    <div class="bg-main"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>SYS.OPT.DIR-00X</h1>
+            <p>Secure Terminal Access</p>
+        </div>
+
+        <a href="https://premiumbundles.github.io/SYS.VAULT_GEN" class="link-btn" target="_blank">
+            <div class="btn-content">
+                <div class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <span>SYS.VAULT.GEN (Generate Vault)</span>
+            </div>
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+
+        <a href="https://site-rapheal.github.io/ULTI.PASS.GEN" class="link-btn" target="_blank">
+            <div class="btn-content">
+                <div class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <span>ULTI.PASS.GEN - Encrypt Password</span>
+            </div>
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+
+        <a href="http://site-rapheal.github.io/vj_sys_vault_encrypted/" class="link-btn" target="_blank">
+            <div class="btn-content">
+                <div class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                </div>
+                <span>My Encrypted Vault</span>
+            </div>
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+
+        <div class="footer">Zero-Knowledge Architecture</div>
+    </div>
+
+</body>
+</html>
